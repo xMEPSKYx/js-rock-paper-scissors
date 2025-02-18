@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+
+      const getUserChoice = userInput => {
+        userInput = `scissors`;
+        userInput = userInput.toLowerCase();
+
+        switch (userInput) {
+          case `rock`:
+            return userInput;
+            break;
+          case `paper`:
+            return userInput;
+            break;
+          case `scissors`:
+            return userInput;
+            break;
+          case `bomb`:
+            return userInput;
+            break;
+          default: 
+            console.log(`Invalid input`);
+        }
+      };
+
+      function getComputerChoice() {
+        let randomNumber = Math.floor(Math.random() * 3);
+
+        switch (randomNumber) {
+          case 0:
+            return `rock`;
+            break;
+          case 1:
+            return `paper`;
+            break;
+          case 2:
+            return `scissors`;
+            break;
+        };
+      };
+
+      const determineWinner = (userChoice, computerChoice) => {
+        if (userChoice === computerChoice) {
+          return `It's a tie!`;
+        };
+
+        if (userChoice === `rock`) {
+          if (computerChoice === `paper`) {
+            return `Computer won.`;
+          } else if (computerChoice === `scissors`) {
+            return `Player won.`;
+          };
+        };
+        
+        if (userChoice === `paper`) {
+          if (computerChoice === `scissors`) {
+            return `Computer won.`;
+          } else if (computerChoice === `rock`) {
+            return `Player won.`;
+          };
+        };
+
+        if (userChoice === `scissors`) {
+          if (computerChoice === `rock`) {
+            return `Computer won.`;
+          } else if (computerChoice === `paper`) {
+            return `Player won.`;
+          };
+        };
+
+        if (userChoice === `bomb`) {
+          return `BOOM, PLAYER WON!!!`;
+        };
+      };
+
+      function playGame() {
+        let userChoice = getUserChoice();
+        let computerChoice = getComputerChoice();
+
+        console.log(userChoice);
+        console.log(computerChoice);
+
+        console.log(determineWinner(userChoice, computerChoice));
+      };
+
+      playGame()
+
+    </script>
+
+  </body>
+</html>
